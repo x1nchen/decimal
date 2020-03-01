@@ -86,6 +86,11 @@ func (d tidbDecimal) Round(places int32) Decimal {
 	return tidbDecimal{&sum}
 }
 
+func (d tidbDecimal) Cmp(d2 Decimal) int {
+	result, _ := d.MyDecimal.Compare(d2.(tidbDecimal).MyDecimal)
+	return result
+}
+
 type tidbDecimalCreator struct {
 }
 

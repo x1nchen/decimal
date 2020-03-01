@@ -47,6 +47,10 @@ func (d springDecimal) Round(places int32) Decimal {
 	return springDecimal{d.Decimal.Round(places)}
 }
 
+func (d springDecimal) Cmp(d2 Decimal) int {
+	return d.Decimal.Cmp(d2.(springDecimal).Decimal)
+}
+
 type springDecimalCreator struct {
 }
 

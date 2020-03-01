@@ -40,6 +40,7 @@ type Decimal interface {
 	Int64() int64
 	Float64() float64
 	String() string
+	Cmp(d2 Decimal) int
 }
 
 type decimalCreator interface {
