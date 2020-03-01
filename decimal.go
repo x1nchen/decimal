@@ -1,5 +1,7 @@
 package decimal
 
+var Zero = NewFromFloat64(0)
+
 type Decimal interface {
 	// Add returns d + d2.
 	Add(d2 Decimal) Decimal
