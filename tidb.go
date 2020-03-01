@@ -93,8 +93,15 @@ func (t *tidbDecimalCreator) NewFromFloat32(val float32) Decimal {
 	return t.NewFromFloat64(float64(val))
 }
 
-func (*tidbDecimalCreator) NewFromFloat64(val float64) Decimal {
+func (t *tidbDecimalCreator) NewFromFloat64(val float64) Decimal {
 	d := new(types.MyDecimal)
-	_ = d.FromFloat64(float64(val))
+	_ = d.FromFloat64(val)
 	return tidbDecimal{d}
 }
+
+func (t *tidbDecimalCreator) NewFromString(val string) (Decimal, error) {
+	d := new(types.MyDecimal)
+	err := d.FromString([]byte(val))
+	return tidbDecimal{d}, err
+}
+

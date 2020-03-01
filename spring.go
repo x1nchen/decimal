@@ -57,3 +57,9 @@ func (*springDecimalCreator) NewFromFloat32(val float32) Decimal {
 func (*springDecimalCreator) NewFromFloat64(val float64) Decimal {
 	return springDecimal{decimal.NewFromFloat(val)}
 }
+
+
+func (*springDecimalCreator) NewFromString(val string) (Decimal, error) {
+	d , err :=decimal.NewFromString(val)
+	return springDecimal{d}, err
+}

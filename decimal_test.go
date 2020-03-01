@@ -30,6 +30,22 @@ func TestNewFromFloat64(t *testing.T) {
 	})
 }
 
+func TestNewFromString(t *testing.T) {
+	Convey(`tidb NewFromString`, t, func() {
+		creator := &tidbDecimalCreator{}
+		d, err := creator.NewFromString("1.5")
+		So(err, ShouldBeNil)
+		So(d, ShouldResemble, creator.NewFromFloat64(1.5))
+	})
+
+	Convey(`spring NewFromString`, t, func() {
+		creator := &springDecimalCreator{}
+		d, err := creator.NewFromString("1.5")
+		So(err, ShouldBeNil)
+		So(d, ShouldResemble, creator.NewFromFloat64(1.5))
+	})
+}
+
 func Decimal1Div3Float64(creator decimalCreator) {
 	a := creator.NewFromFloat64(1)
 	So(a, ShouldNotBeNil)

@@ -45,6 +45,7 @@ type Decimal interface {
 type decimalCreator interface {
 	NewFromFloat32(val float32) Decimal
 	NewFromFloat64(val float64) Decimal
+	NewFromString(val string) (Decimal, error)
 }
 
 var (
@@ -58,3 +59,8 @@ func NewFromFloat32(val float32) Decimal {
 func NewFromFloat64(val float64) Decimal {
 	return creator.NewFromFloat64(val)
 }
+
+func NewFromString(val string) (Decimal, error) {
+	 return creator.NewFromString(val)
+}
+
