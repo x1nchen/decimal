@@ -12,5 +12,5 @@ tidb-decimal 官方只维护 linux/64bit 平台。经测试 windows 32bit 下测
 
 参考
 
-1. https://gitlab.followme-internal.com/go-common/decimal/-/jobs/86272
-2. https://github.com/pingcap/tidb/issues/5224
+
+1. https://github.com/pingcap/tidb/issues/5224
